@@ -12,7 +12,7 @@ document.addEventListener("DOMContentLoaded", () => {
   // layer-stack hero: checking a layer reveals it and clears away
   // any unchecked layers sitting above it, so you can see through
   // to the one you picked. Order is top-of-stack to bottom.
-  const stackOrder = ["buildings", "parcels", "hydro", "contours"];
+  const stackOrder = ["buildings", "parcels", "huc12", "contours"];
   const layerInputs = stackOrder
     .map((name) => document.querySelector(`.layer-chip input[data-layer="${name}"]`))
     .filter(Boolean);
