@@ -487,7 +487,9 @@ section { padding: 76px 0; }
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
   gap: 1px;
-  background: var(--border);
+  background: transparent;
+}
+.grid-flex .card {
   border: 1px solid var(--border);
 }
 
