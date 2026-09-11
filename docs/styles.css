@@ -493,6 +493,27 @@ section { padding: 76px 0; }
   border: 1px solid var(--border);
 }
 
+.featured-callout {
+  background: var(--panel);
+  border: 1px solid var(--ochre-dim);
+  border-left: 3px solid var(--ochre);
+  border-radius: 4px;
+  padding: 32px 36px;
+  margin-bottom: 32px;
+}
+.featured-callout h3 {
+  font-size: 1.4rem;
+  margin-top: 8px;
+}
+.featured-callout p:not(.eyebrow) {
+  margin-top: 14px;
+  color: var(--paper-dim);
+  max-width: 60ch;
+}
+.featured-callout .btn {
+  margin-top: 22px;
+}
+
 .card {
   background: var(--ink);
   padding: 32px 28px;
