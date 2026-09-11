@@ -1,1 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Layered Insights GIS — Custom Web Mapping &amp; GIS Systems</title>
+<meta name="description" content="Layered Insights GIS builds custom web maps, GIS systems integration, and spatial data pipelines for organizations that run on place." />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body class="contour-field">
 
+<header class="site-header">
+  <nav class="nav">
+    <a href="index.html" class="wordmark">
+      <span class="mark"><span></span><span></span><span></span></span>
+      Layered Insights GIS
+    </a>
+    <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">☰</button>
+    <ul class="nav-links">
+      <li><a href="index.html" aria-current="page">Home</a></li>
+      <li><a href="services.html">Services</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+  </nav>
+</header>
+
+<main>
+  <section class="hero">
+    <div class="container hero-grid">
+      <div>
+        <p class="eyebrow">GIS consulting · custom web mapping</p>
+        <h1>See the ground truth, layer by layer.</h1>
+        <p class="lede">We build the interactive maps, spatial data pipelines, and GIS systems that let organizations see, question, and act on what's happening across their physical footprint.</p>
+        <div class="hero-cta">
+          <a href="contact.html" class="btn btn-primary">Start a project</a>
+          <a href="services.html" class="btn btn-ghost">See what we build</a>
+        </div>
+        <p class="coord" style="margin-top:28px;">34.5323° N, 83.9843° W · toggle the layers →</p>
+      </div>
+
+      <div>
+        <div class="stack-stage" aria-hidden="false">
+          <div class="layer-sheet active" data-layer="base"></div>
+          <div class="layer-sheet" data-layer="contours"><span class="tag">contours</span></div>
+          <div class="layer-sheet" data-layer="hydro"><span class="tag">hydrology</span></div>
+          <div class="layer-sheet" data-layer="parcels"><span class="tag">parcels</span></div>
+          <div class="layer-sheet" data-layer="buildings"><span class="tag">buildings</span></div>
+        </div>
+        <div class="layer-toggles">
+          <label class="layer-chip"><input type="checkbox" data-layer="contours"><span class="swatch" style="background:var(--ochre)"></span>Contours</label>
+          <label class="layer-chip"><input type="checkbox" data-layer="hydro"><span class="swatch" style="background:var(--teal)"></span>Hydrology</label>
+          <label class="layer-chip"><input type="checkbox" data-layer="parcels"><span class="swatch" style="background:var(--olive)"></span>Parcels</label>
+          <label class="layer-chip"><input type="checkbox" data-layer="buildings"><span class="swatch" style="background:var(--clay)"></span>Buildings</label>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section-border-top">
+    <div class="container">
+      <div class="section-head">
+        <p class="eyebrow">What we do</p>
+        <h2>Three problems, one discipline.</h2>
+        <p class="lede">Most organizations have spatial data somewhere. Few have it working for them. We close that gap.</p>
+      </div>
+      <div class="grid-3">
+        <div class="card">
+          <p class="num">01</p>
+          <h3>Custom web mapping</h3>
+          <p>Interactive maps and browser-based apps — built on Leaflet, ArcGIS Online, or Experience Builder — designed around how your staff and public actually use them.</p>
+        </div>
+        <div class="card">
+          <p class="num">02</p>
+          <h3>Systems integration</h3>
+          <p>We connect spatial data to the systems that already run your operations: scheduling, asset management, directories, work orders.</p>
+        </div>
+        <div class="card">
+          <p class="num">03</p>
+          <h3>Data pipelines</h3>
+          <p>Automated, scripted pipelines that keep your spatial data current, instead of a shapefile that was accurate two years ago.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section-border-top">
+    <div class="container">
+      <div class="about-grid">
+        <div>
+          <p class="eyebrow">Why Layered Insights</p>
+          <h2 style="font-size:clamp(1.7rem,3vw,2.3rem); margin-top:10px;">Built by a practitioner, not a slide deck.</h2>
+          <p class="lede" style="margin-top:16px;">We've built and run enterprise GIS programs from the inside — not just presented on them. That means we know where the data actually breaks, and where the shortcuts cost you later.</p>
+          <div class="hero-cta">
+            <a href="about.html" class="btn btn-ghost">More about us</a>
+          </div>
+        </div>
+        <div class="stat-row">
+          <div class="stat"><span class="n">5+</span><span class="l">GIS platforms integrated</span></div>
+          <div class="stat"><span class="n">1000s</span><span class="l">of records kept current</span></div>
+          <div class="stat"><span class="n">1</span><span class="l">point of contact, start to finish</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <a href="index.html" class="wordmark">
+        <span class="mark"><span></span><span></span><span></span></span>
+        Layered Insights GIS
+      </a>
+      <div class="footer-cols">
+        <div class="footer-col">
+          <h4>Site</h4>
+          <ul>
+            <li><a href="services.html">Services</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Contact</h4>
+          <ul>
+            <li><a href="mailto:contact@layeredinsightsgis.com">contact@layeredinsightsgis.com</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Layered Insights GIS</span>
+      <span>layeredinsightsgis.com</span>
+    </div>
+  </div>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
