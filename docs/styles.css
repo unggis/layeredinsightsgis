@@ -266,85 +266,119 @@ p { margin: 0; }
 /* layer stack graphic */
 .stack-stage {
   position: relative;
-  height: 380px;
+  height: 400px;
 }
 
 .layer-sheet {
   position: absolute;
   inset: 30px 10px 60px 40px;
-  border-radius: 4px;
+  border-radius: 5px;
   border: 1px solid var(--border-strong);
-  background: var(--panel);
-  transition: transform 0.4s ease, opacity 0.4s ease;
-  opacity: 0.28;
+  overflow: hidden;
+  transform: translate(var(--tx, 0), var(--ty, 0)) rotate(var(--rot, 0deg));
+  animation: sheetIn 0.7s cubic-bezier(0.16, 1, 0.3, 1) both;
+  animation-delay: var(--delay, 0s);
 }
 
-.layer-sheet .tag {
+@keyframes sheetIn {
+  from {
+    opacity: 0;
+    transform: translate(var(--tx, 0), calc(var(--ty, 0px) + 46px)) rotate(var(--rot, 0deg)) scale(0.94);
+  }
+  to {
+    opacity: 1;
+    transform: translate(var(--tx, 0), var(--ty, 0)) rotate(var(--rot, 0deg));
+  }
+}
+
+.layer-svg { position: absolute; inset: 0; width: 100%; height: 100%; }
+
+.layer-svg .ghost path,
+.layer-svg .ghost rect,
+.layer-svg .ghost ellipse {
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.1;
+  opacity: 0.4;
+}
+
+.layer-svg .full {
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+.layer-sheet.active .layer-svg .full { opacity: 1; }
+
+.layer-svg .full path {
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.6;
+}
+.layer-svg .full path.index { stroke-width: 2.8; }
+.layer-svg .full ellipse { fill: currentColor; opacity: 0.5; stroke: none; }
+.layer-svg .full rect { fill: currentColor; opacity: 0.8; stroke: currentColor; stroke-width: 1; }
+
+.sheet-label {
   position: absolute;
-  bottom: -28px;
-  left: 0;
+  top: 12px;
+  left: 16px;
   font-family: var(--font-mono);
   font-size: 0.72rem;
-  color: var(--muted);
-  white-space: nowrap;
+  color: var(--paper);
+  opacity: 0;
+  transform: translateY(-4px);
+  transition: opacity 0.25s ease, transform 0.25s ease;
+  text-shadow: 0 1px 4px rgba(0,0,0,0.6);
 }
-
-.layer-sheet.active { opacity: 1; }
+.layer-sheet.active .sheet-label { opacity: 1; transform: translateY(0); }
 
 .layer-sheet[data-layer="base"] {
-  transform: translate(0, 40px) rotate(0deg);
   z-index: 1;
   background:
-    linear-gradient(var(--panel-2), var(--panel-2));
+    radial-gradient(circle at 30% 20%, rgba(76,151,168,0.08), transparent 55%),
+    var(--panel-2);
+  background-image:
+    linear-gradient(rgba(232,228,218,0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(232,228,218,0.05) 1px, transparent 1px);
+  background-size: 28px 28px;
+  color: var(--muted);
+}
+.layer-sheet[data-layer="base"] .chrome {
+  position: absolute;
+  bottom: 14px;
+  right: 14px;
+  width: 110px;
+  height: 38px;
 }
 
 .layer-sheet[data-layer="contours"] {
-  transform: translate(18px, 22px) rotate(-1.2deg);
   z-index: 2;
-  background-image: repeating-linear-gradient(
-    35deg, transparent 0 10px, var(--ochre-dim) 10px 12px
-  );
+  background: rgba(28, 37, 45, 0.42);
+  backdrop-filter: blur(1.5px);
+  color: var(--ochre);
 }
 .layer-sheet.active[data-layer="contours"] { border-color: var(--ochre); }
 
 .layer-sheet[data-layer="hydro"] {
-  transform: translate(36px, 4px) rotate(0.8deg);
   z-index: 3;
-  background-image: repeating-linear-gradient(
-    100deg, transparent 0 14px, var(--teal-dim) 14px 17px
-  );
+  background: rgba(28, 37, 45, 0.38);
+  backdrop-filter: blur(1.5px);
+  color: var(--teal);
 }
 .layer-sheet.active[data-layer="hydro"] { border-color: var(--teal); }
 
 .layer-sheet[data-layer="parcels"] {
-  transform: translate(54px, -14px) rotate(-0.6deg);
   z-index: 4;
-  background-image:
-    linear-gradient(var(--olive-dim) 1px, transparent 1px),
-    linear-gradient(90deg, var(--olive-dim) 1px, transparent 1px);
-  background-size: 34px 34px;
+  background: rgba(28, 37, 45, 0.34);
+  backdrop-filter: blur(1.5px);
+  color: var(--olive);
 }
 .layer-sheet.active[data-layer="parcels"] { border-color: var(--olive); }
 
 .layer-sheet[data-layer="buildings"] {
-  transform: translate(72px, -32px) rotate(1deg);
   z-index: 5;
-  background-image:
-    linear-gradient(var(--clay) 0 0);
-  background-size: 0;
-}
-.layer-sheet[data-layer="buildings"]::before,
-.layer-sheet[data-layer="buildings"]::after {
-  content: "";
-  position: absolute;
-  background: rgba(180, 92, 74, 0.4);
-  border: 1px solid var(--clay);
-}
-.layer-sheet[data-layer="buildings"]::before {
-  width: 34%; height: 26%; top: 20%; left: 14%;
-}
-.layer-sheet[data-layer="buildings"]::after {
-  width: 22%; height: 40%; top: 44%; left: 56%;
+  background: rgba(28, 37, 45, 0.3);
+  backdrop-filter: blur(1.5px);
+  color: var(--clay);
 }
 .layer-sheet.active[data-layer="buildings"] { border-color: var(--clay); }
 
