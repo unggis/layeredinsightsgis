@@ -43,11 +43,78 @@
 
       <div>
         <div class="stack-stage" aria-hidden="false">
-          <div class="layer-sheet active" data-layer="base"></div>
-          <div class="layer-sheet" data-layer="contours"><span class="tag">contours</span></div>
-          <div class="layer-sheet" data-layer="hydro"><span class="tag">hydrology</span></div>
-          <div class="layer-sheet" data-layer="parcels"><span class="tag">parcels</span></div>
-          <div class="layer-sheet" data-layer="buildings"><span class="tag">buildings</span></div>
+          <div class="layer-sheet active" data-layer="base">
+            <svg class="chrome" viewBox="0 0 120 40">
+              <path d="M8 30 L8 10 M4 14 L8 10 L12 14" fill="none" stroke="currentColor" stroke-width="1.4"/>
+              <line x1="30" y1="30" x2="70" y2="30" stroke="currentColor" stroke-width="1.4"/>
+              <line x1="30" y1="26" x2="30" y2="30" stroke="currentColor" stroke-width="1.4"/>
+              <line x1="50" y1="26" x2="50" y2="30" stroke="currentColor" stroke-width="1.4"/>
+              <line x1="70" y1="26" x2="70" y2="30" stroke="currentColor" stroke-width="1.4"/>
+              <text x="30" y="18" font-family="IBM Plex Mono" font-size="8" fill="currentColor">0&#160;&#160;&#160;&#160;&#160;&#160;200 m</text>
+            </svg>
+          </div>
+
+          <div class="layer-sheet" data-layer="contours" style="--tx:18px; --ty:22px; --rot:-1.2deg; --delay:.08s;">
+            <svg class="layer-svg" viewBox="0 0 400 300" preserveAspectRatio="none">
+              <g class="ghost">
+                <path d="M30,250 C110,185 290,185 370,250"/>
+                <path d="M55,205 C125,150 275,150 345,205"/>
+                <path d="M85,160 C140,115 260,115 315,160"/>
+                <path d="M120,115 C155,88 245,88 280,115"/>
+              </g>
+              <g class="full">
+                <path class="index" d="M12,270 C105,195 295,195 388,270"/>
+                <path d="M30,250 C110,185 290,185 370,250"/>
+                <path d="M55,205 C125,150 275,150 345,205"/>
+                <path d="M85,160 C140,115 260,115 315,160"/>
+                <path d="M120,115 C155,88 245,88 280,115"/>
+              </g>
+            </svg>
+            <span class="sheet-label">Contours</span>
+          </div>
+
+          <div class="layer-sheet" data-layer="hydro" style="--tx:36px; --ty:4px; --rot:.8deg; --delay:.16s;">
+            <svg class="layer-svg" viewBox="0 0 400 300" preserveAspectRatio="none">
+              <g class="ghost">
+                <path d="M-10,70 C70,110 130,50 210,100 C290,150 330,90 410,130"/>
+              </g>
+              <g class="full">
+                <path d="M-10,70 C70,110 130,50 210,100 C290,150 330,90 410,130"/>
+                <ellipse cx="300" cy="215" rx="44" ry="24"/>
+              </g>
+            </svg>
+            <span class="sheet-label">Hydrology</span>
+          </div>
+
+          <div class="layer-sheet" data-layer="parcels" style="--tx:54px; --ty:-14px; --rot:-.6deg; --delay:.24s;">
+            <svg class="layer-svg" viewBox="0 0 400 300" preserveAspectRatio="none">
+              <g class="ghost">
+                <path d="M0,0 L400,0 M0,300 L400,300 M0,0 L0,300 M400,0 L400,300 M148,0 L138,300 M0,128 L400,148 M255,0 L268,128 M0,214 L255,196 M268,128 L400,148"/>
+              </g>
+              <g class="full">
+                <path d="M0,0 L400,0 M0,300 L400,300 M0,0 L0,300 M400,0 L400,300 M148,0 L138,300 M0,128 L400,148 M255,0 L268,128 M0,214 L255,196 M268,128 L400,148"/>
+              </g>
+            </svg>
+            <span class="sheet-label">Parcels</span>
+          </div>
+
+          <div class="layer-sheet" data-layer="buildings" style="--tx:72px; --ty:-32px; --rot:1deg; --delay:.32s;">
+            <svg class="layer-svg" viewBox="0 0 400 300" preserveAspectRatio="none">
+              <g class="ghost">
+                <rect x="68" y="66" width="72" height="50" transform="rotate(-4 104 91)"/>
+                <rect x="222" y="58" width="46" height="82" transform="rotate(3 245 99)"/>
+                <rect x="152" y="172" width="92" height="54" transform="rotate(-2 198 199)"/>
+                <rect x="292" y="152" width="54" height="70" transform="rotate(5 319 187)"/>
+              </g>
+              <g class="full">
+                <rect x="68" y="66" width="72" height="50" transform="rotate(-4 104 91)"/>
+                <rect x="222" y="58" width="46" height="82" transform="rotate(3 245 99)"/>
+                <rect x="152" y="172" width="92" height="54" transform="rotate(-2 198 199)"/>
+                <rect x="292" y="152" width="54" height="70" transform="rotate(5 319 187)"/>
+              </g>
+            </svg>
+            <span class="sheet-label">Buildings</span>
+          </div>
         </div>
         <div class="layer-toggles">
           <label class="layer-chip"><input type="checkbox" data-layer="contours"><span class="swatch" style="background:var(--ochre)"></span>Contours</label>
@@ -56,6 +123,7 @@
           <label class="layer-chip"><input type="checkbox" data-layer="buildings"><span class="swatch" style="background:var(--clay)"></span>Buildings</label>
         </div>
       </div>
+
     </div>
   </section>
 
