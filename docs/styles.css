@@ -316,11 +316,6 @@ p { margin: 0; }
   transition: opacity 0.35s ease, transform 0.15s ease-out;
 }
 
-.layer-sheet.depth-hidden {
-  opacity: 0;
-  pointer-events: none;
-}
-
 @keyframes sheetIn {
   from {
     transform: translate(var(--tx, 0), calc(var(--ty, 0px) + 46px)) rotate(var(--rot, 0deg)) scale(0.94);

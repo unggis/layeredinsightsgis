@@ -9,33 +9,44 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  // layer-stack hero: checking a layer reveals it and clears away
-  // any unchecked layers sitting above it, so you can see through
-  // to the one you picked. Order is top-of-stack to bottom.
+  // layer-stack hero: the most recently toggled-on layer jumps to the
+  // front of the stack, so it's never obscured by layers above its
+  // "natural" resting position. Not how a real GIS TOC works (draw
+  // order is usually fixed there), but far more useful in a demo
+  // where the point is actually seeing what you just clicked.
   const stackOrder = ["buildings", "parcels", "huc12", "contours"];
+  const baseZIndex = { buildings: 5, parcels: 4, huc12: 3, contours: 2 };
   const layerInputs = stackOrder
     .map((name) => document.querySelector(`.layer-chip input[data-layer="${name}"]`))
     .filter(Boolean);
+  let recency = [];
 
-  function updateStack() {
-    const checked = {};
-    layerInputs.forEach((input) => {
-      checked[input.dataset.layer] = input.checked;
-    });
-
-    stackOrder.forEach((name, i) => {
+  function renderStack() {
+    stackOrder.forEach((name) => {
       const sheet = document.querySelector(`.layer-sheet[data-layer="${name}"]`);
-      if (!sheet) return;
-      const isChecked = !!checked[name];
-      const somethingDeeperChecked = stackOrder.slice(i + 1).some((n) => checked[n]);
+      const input = layerInputs.find((i) => i.dataset.layer === name);
+      if (!sheet || !input) return;
+      const isChecked = input.checked;
       sheet.classList.toggle("active", isChecked);
-      sheet.classList.toggle("depth-hidden", somethingDeeperChecked && !isChecked);
+      if (isChecked) {
+        const idx = recency.indexOf(name);
+        sheet.style.zIndex = String(50 - (idx === -1 ? recency.length : idx));
+      } else {
+        sheet.style.zIndex = String(baseZIndex[name] || 1);
+      }
     });
   }
 
   if (layerInputs.length) {
-    layerInputs.forEach((input) => input.addEventListener("change", updateStack));
-    updateStack();
+    layerInputs.forEach((input) => {
+      input.addEventListener("change", () => {
+        const name = input.dataset.layer;
+        recency = recency.filter((n) => n !== name);
+        if (input.checked) recency.unshift(name);
+        renderStack();
+      });
+    });
+    renderStack();
   }
 
   // scroll-reveal: fade + lift content into place as it enters the
