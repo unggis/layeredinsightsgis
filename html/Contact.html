@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Contact — Layered Insights GIS</title>
+<meta name="description" content="Start a conversation about a mapping, integration, or spatial data project." />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body class="contour-field">
+
+<header class="site-header">
+  <nav class="nav">
+    <a href="index.html" class="wordmark">
+      <span class="mark"><span></span><span></span><span></span></span>
+      Layered Insights GIS
+    </a>
+    <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">☰</button>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="services.html">Services</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="contact.html" aria-current="page">Contact</a></li>
+    </ul>
+  </nav>
+</header>
+
+<main>
+  <section class="page-hero">
+    <div class="container">
+      <p class="eyebrow">Contact</p>
+      <h1>Let's talk about your data.</h1>
+      <p class="lede">Tell us what you're trying to see, and we'll tell you honestly whether — and how — we can help.</p>
+    </div>
+  </section>
+
+  <section class="section-border-top">
+    <div class="container contact-grid">
+      <div class="contact-details">
+        <div class="item">
+          <p class="l">Email</p>
+          <p class="v"><a href="mailto:contact@layeredinsightsgis.com">contact@layeredinsightsgis.com</a></p>
+        </div>
+        <div class="item">
+          <p class="l">Based in</p>
+          <p class="v">Dahlonega, Georgia</p>
+        </div>
+        <div class="item">
+          <p class="l">Response time</p>
+          <p class="v">Within two business days</p>
+        </div>
+      </div>
+
+      <form class="contact-form" action="mailto:contact@layeredinsightsgis.com" method="post" enctype="text/plain">
+        <div class="form-field">
+          <label for="name">Name</label>
+          <input type="text" id="name" name="name" required>
+        </div>
+        <div class="form-field">
+          <label for="email">Email</label>
+          <input type="email" id="email" name="email" required>
+        </div>
+        <div class="form-field">
+          <label for="org">Organization</label>
+          <input type="text" id="org" name="organization">
+        </div>
+        <div class="form-field">
+          <label for="topic">What are you trying to solve?</label>
+          <select id="topic" name="topic">
+            <option>Custom web mapping</option>
+            <option>GIS systems integration</option>
+            <option>Spatial data pipelines</option>
+            <option>GIS program development</option>
+            <option>Not sure yet</option>
+          </select>
+        </div>
+        <div class="form-field">
+          <label for="message">Message</label>
+          <textarea id="message" name="message" required></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary">Send message</button>
+      </form>
+    </div>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <a href="index.html" class="wordmark">
+        <span class="mark"><span></span><span></span><span></span></span>
+        Layered Insights GIS
+      </a>
+      <div class="footer-cols">
+        <div class="footer-col">
+          <h4>Site</h4>
+          <ul>
+            <li><a href="services.html">Services</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Contact</h4>
+          <ul>
+            <li><a href="mailto:contact@layeredinsightsgis.com">contact@layeredinsightsgis.com</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Layered Insights GIS</span>
+      <span>layeredinsightsgis.com</span>
+    </div>
+  </div>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
