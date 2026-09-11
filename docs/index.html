@@ -7,7 +7,7 @@
 <meta name="description" content="Layered Insights GIS builds custom web maps, GIS systems integration, and spatial data pipelines for organizations that run on place." />
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="styles.css?v=3">
 </head>
 <body class="contour-field">
 
@@ -89,10 +89,26 @@
           <div class="layer-sheet" data-layer="parcels" style="--tx:54px; --ty:-14px; --rot:-.6deg; --delay:.24s;">
             <svg class="layer-svg" viewBox="0 0 400 300" preserveAspectRatio="none">
               <g class="ghost">
-                <path d="M0,0 L400,0 M0,300 L400,300 M0,0 L0,300 M400,0 L400,300 M148,0 L138,300 M0,128 L400,148 M255,0 L268,128 M0,214 L255,196 M268,128 L400,148"/>
+                <polygon points="0,0 140,0 130,140 0,150"/>
+                <polygon points="140,0 260,0 250,130 130,140"/>
+                <polygon points="260,0 400,0 400,140 250,130"/>
+                <polygon points="0,150 130,140 120,300 0,300"/>
+                <polygon points="130,140 250,130 240,300 120,300"/>
+                <polygon points="250,130 400,140 400,300 240,300"/>
               </g>
               <g class="full">
-                <path d="M0,0 L400,0 M0,300 L400,300 M0,0 L0,300 M400,0 L400,300 M148,0 L138,300 M0,128 L400,148 M255,0 L268,128 M0,214 L255,196 M268,128 L400,148"/>
+                <polygon points="0,0 140,0 130,140 0,150"/>
+                <polygon points="140,0 260,0 250,130 130,140"/>
+                <polygon points="260,0 400,0 400,140 250,130"/>
+                <polygon points="0,150 130,140 120,300 0,300"/>
+                <polygon points="130,140 250,130 240,300 120,300"/>
+                <polygon points="250,130 400,140 400,300 240,300"/>
+                <text x="55" y="72">120</text>
+                <text x="180" y="66">121</text>
+                <text x="315" y="60">122</text>
+                <text x="45" y="222">171</text>
+                <text x="175" y="218">222</text>
+                <text x="310" y="212">123</text>
               </g>
             </svg>
             <span class="sheet-label">Parcels</span>
@@ -102,15 +118,17 @@
             <svg class="layer-svg" viewBox="0 0 400 300" preserveAspectRatio="none">
               <g class="ghost">
                 <rect x="68" y="66" width="72" height="50" transform="rotate(-4 104 91)"/>
+                <rect x="130" y="80" width="34" height="36" transform="rotate(-4 147 98)"/>
                 <rect x="222" y="58" width="46" height="82" transform="rotate(3 245 99)"/>
                 <rect x="152" y="172" width="92" height="54" transform="rotate(-2 198 199)"/>
                 <rect x="292" y="152" width="54" height="70" transform="rotate(5 319 187)"/>
               </g>
               <g class="full">
-                <rect x="68" y="66" width="72" height="50" transform="rotate(-4 104 91)"/>
-                <rect x="222" y="58" width="46" height="82" transform="rotate(3 245 99)"/>
-                <rect x="152" y="172" width="92" height="54" transform="rotate(-2 198 199)"/>
-                <rect x="292" y="152" width="54" height="70" transform="rotate(5 319 187)"/>
+                <rect class="bldg" x="68" y="66" width="72" height="50" transform="rotate(-4 104 91)"/>
+                <rect class="bldg" x="130" y="80" width="34" height="36" transform="rotate(-4 147 98)"/>
+                <rect class="bldg" x="222" y="58" width="46" height="82" transform="rotate(3 245 99)"/>
+                <rect class="bldg" x="152" y="172" width="92" height="54" transform="rotate(-2 198 199)"/>
+                <rect class="bldg" x="292" y="152" width="54" height="70" transform="rotate(5 319 187)"/>
               </g>
             </svg>
             <span class="sheet-label">Buildings</span>
@@ -206,6 +224,6 @@
   </div>
 </footer>
 
-<script src="script.js"></script>
+<script src="script.js?v=3"></script>
 </body>
 </html>
