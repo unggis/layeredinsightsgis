@@ -299,32 +299,63 @@ p { margin: 0; }
 .layer-photo {
   background-size: cover;
   background-position: center;
-  filter: grayscale(0.75) brightness(0.5) saturate(0.6);
-  transition: filter 0.5s ease;
+  filter: grayscale(1) brightness(0.62) contrast(1.08);
+  transition: filter 0.5s ease, box-shadow 0.5s ease;
 }
 .layer-photo.active {
-  filter: grayscale(0) brightness(0.92) saturate(1.05);
+  filter: grayscale(0) brightness(0.95) contrast(1.02) saturate(1.05);
 }
+.layer-photo::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  mix-blend-mode: color;
+  opacity: 0.7;
+  transition: opacity 0.5s ease;
+  pointer-events: none;
+}
+.layer-photo.active::before { opacity: 0; }
+.layer-photo[data-layer="contours"]::before { background: var(--ochre); }
+.layer-photo[data-layer="huc12"]::before { background: var(--teal); }
+.layer-photo[data-layer="parcels"]::before { background: var(--olive); }
+.layer-photo[data-layer="buildings"]::before { background: var(--clay); }
+
 .layer-photo::after {
   content: "";
   position: absolute;
   inset: 0;
-  background: linear-gradient(180deg, rgba(16,21,26,0.15), rgba(16,21,26,0.45));
+  background: linear-gradient(180deg, rgba(16,21,26,0.1), rgba(16,21,26,0.5));
   pointer-events: none;
 }
+
+.layer-photo.active[data-layer="contours"] { box-shadow: 0 0 46px -6px var(--ochre); }
+.layer-photo.active[data-layer="huc12"] { box-shadow: 0 0 46px -6px var(--teal); }
+.layer-photo.active[data-layer="parcels"] { box-shadow: 0 0 46px -6px var(--olive); }
+.layer-photo.active[data-layer="buildings"] { box-shadow: 0 0 46px -6px var(--clay); }
 
 .sheet-label {
   position: absolute;
   top: 12px;
   left: 16px;
-  font-family: var(--font-mono);
-  font-size: 0.72rem;
   color: var(--paper);
   opacity: 0;
   transform: translateY(-4px);
   transition: opacity 0.25s ease, transform 0.25s ease;
-  text-shadow: 0 1px 4px rgba(0,0,0,0.6);
   z-index: 1;
+}
+.sheet-label .name {
+  display: block;
+  font-family: var(--font-display);
+  font-size: 1.05rem;
+  text-shadow: 0 1px 6px rgba(0,0,0,0.7);
+}
+.sheet-label .tech {
+  display: block;
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  color: var(--paper-dim);
+  text-shadow: 0 1px 4px rgba(0,0,0,0.7);
+  margin-top: 2px;
 }
 .layer-sheet.active .sheet-label { opacity: 1; transform: translateY(0); }
 
